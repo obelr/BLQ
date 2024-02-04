@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
+
 const Shortcuts = () => {
   const [shortcuts, setShortcuts] = useState([]);
 
@@ -20,7 +21,7 @@ const Shortcuts = () => {
   }, []);
 
   return (
-    <div className="flex items-center opacity-90 justify-center gap-10">
+    <div className="flex flex-wrap justify-center items-center mt-10 gap-6 md:gap-10"> {/* Added flex-wrap and adjusted gap */}
       {shortcuts.map((shortcut) => (
         <div key={shortcut.mainShortcutId} className="text-center">
           <Image

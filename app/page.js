@@ -7,11 +7,14 @@ import ImageSlider from "@/Components/slider";
 export default function Home() {
   return (
     <>
-      <div className="flex mt-4 justify-center mb-10">
+    <section className="">
+      <div className="mt-1">
         <Navbar />
       </div>
-
+    
       <ImageSlider />
+     
+    
 
       <div className=" mb-10">
         <Shortcuts />
@@ -19,6 +22,7 @@ export default function Home() {
       <div className="flex justify-center ">
         <Discount />
       </div>
+      </section>
     </>
   );
 }

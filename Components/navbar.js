@@ -4,23 +4,22 @@ import { IoMdMenu } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <header className=" shadow-md w-full">
+    <header className=" shadow-md">
       <div className="flex container flex-col items-center sm:flex-row sm:justify-between text-center py-3">
-        <div className="flex ml-40 ">
+        <div className="flex flex-auto gap-2  justify-end mr-24 ">
           <Image
             src="/logo-new.svg"
             alt="Logo"
-           
             width="140"
             height="85"
             position="relative"
             priority
           />
-
-          <div className="flex gap-1 items-center ml-4">
-            <IoMdMenu color="#00D094" />
-            <span className="mr-4 text-[#00D094]">Category</span>
+          <div className="flex">
+          <IoMdMenu color="#00D094" />
+          <span className="mr-4 text-[#00D094]">Category</span>
           </div>
+          
         </div>
 
         <div className="relative md:flex-none w-96 order-2 sm:order-1 flex justify-center ml-1 py-4 sm:py-0 ">

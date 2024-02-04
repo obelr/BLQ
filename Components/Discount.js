@@ -24,14 +24,14 @@ const Discount = () => {
 
  
   return (
-    <div className="w-2/3">
+    <div className="w-full md:w-2/3 p-4"> {/* Adjusted width and added padding */}
       {discountData && discountData.map((item) => (
-        <div key={item.id} className="flex gap-12 mb-4">
-          <div className="w-1/4">
+        <div key={item.id} className="flex flex-col md:flex-row gap-4 md:gap-12 mb-4"> {/* Adjusted flex direction and gap */}
+          <div className="w-full md:w-1/4">
             <Title>{item.title}</Title>
             <Subtitle>{item.subtitle}</Subtitle>
           </div>
-          <div className="gap-5 flex  justify-between">
+          <div className="flex flex-wrap md:flex-nowrap justify-between gap-2 md:gap-5"> {/* Adjusted flex direction and gap */}
             {item.items.slice(0, 4).map((product) => (
               <Card
                 key={product.uuid}
@@ -51,7 +51,6 @@ const Discount = () => {
         </div>
       ))}
     </div>
-  
   );
 };
 

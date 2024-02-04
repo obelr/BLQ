@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  FreeMode,
+  Scrollbar,
+  A11y,
+} from "swiper/modules";
 import Image from "next/image";
 import "swiper/swiper-bundle.css";
 import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 
 const ImageSlider = () => {
   const [images, setImages] = useState([]);
@@ -26,36 +31,64 @@ const ImageSlider = () => {
     fetchImages();
   }, []);
 
+  
   return (
-    <section className=" my-12 mx-12 container ">
-      
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={30}
-          slidesPerView={3}
-          navigation={true}
-          pagination={true}
-          autoplay={{ delay: 2000 }}
-          loop={true}
-          className="relative w-full rounded-lg"
-        >
-          
-          
-          {images.map((image, index) => (
-            
-            <SwiperSlide key={index}>
+    <div className="">
+      <Swiper
+       navigation={true}
+       pagination={true}
+        breakpoints={{
+          340: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 60,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 60,
+          },
+        }}
+        freeMode={true}
+        modules={[Navigation, Pagination, Scrollbar, FreeMode]}
+        className=""
+        effect={'coverflow'} // Apply coverflow effect
+        coverflowEffect={{
+          rotate: 50, // Rotate value
+          stretch: 0, // Stretch value
+          depth: 100, // Depth value
+          modifier: 1, // Modifier value
+          slideShadows: true, // Enable slide shadows
+        }}
+       
+        autoplay={{ delay: 2000 }}
+      >
+        {images.map((image, index) => (
+          <swiper-container key={index} init="false">
+            <SwiperSlide>
+            <div className="swiper-slide-overlay">
               <Image
                 src={image}
                 alt={`Image ${index + 1}`}
-                width={300}
-                height={300}
-                layout="responsive"
+                width={1000}
+                height={1000}
               />
+              </div>
             </SwiperSlide>
-          ))}
-        </Swiper>
-     
-    </section>
+          </swiper-container>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 
